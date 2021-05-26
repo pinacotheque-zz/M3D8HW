@@ -84,24 +84,19 @@
                     class="form-control"
                     aria-describedby="name"
                   />
-                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                 </div>
                 <div class="form-group">
-                  <label for="brand">Brand</label>
-                  <textarea
-                    id="brand"
-                    type="text"
-                    rows="1"
-                    class="form-control"
-                    aria-describedby="event description"
-                  ></textarea>
-                </div>
-                
-                
+                    <label for="discription">discription</label>
+                    <input
+                      id="discription"
+                      type="text"
+                      class="form-control"
+                      aria-describedby="name"
+                    />
+                  </div>
                 <input type="submit" class="btn btn-primary" value="Search" />
               </form>
             </div>
-
         </div>
     </div>
    
@@ -117,18 +112,16 @@
          const handleSubmit = async (event) => {
         const url = "https://striveschool-api.herokuapp.com/api/product/";
         event.preventDefault();
-        // this is stopping the default behavior from the browser
-        // about this specific event, which would instead refresh the page and insert some
-        // querystrings into the address bar
-        // console.log(e);
 
-        let brand = document.getElementById("name").value;
+        let brand = document.getElementById("brand").value;
 
         const myEvent = {
-          name,
-          brand: document.getElementById("brand").value,
+          "name": document.getElementById("name").value,
+          "description": document.getElementById("discription").value,
+        "brand": "nokia",
+         "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+         "price": "2000"
         };
-
         // console.log("Handle submit", myEvent);
         try {
           const response = await fetch(url, {
@@ -138,8 +131,7 @@
                 "Content-Type": "application/json",
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlNDE5ZWNlYWY0ODAwMTVjOTE4NzIiLCJpYXQiOjE2MjIwMzI3OTgsImV4cCI6MTYyMzI0MjM5OH0.DgYZBl7qEA5Bp4LmgBUEcFVUWLySQfd-KQksu872Z2o",
             }
-          });
-        
+          }); 
         } catch (err) {
           alert(err.message);
         }
