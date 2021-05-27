@@ -46,12 +46,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <title>Amazonie</title>
+    <title>Back Office</title>
   </head>
   <body>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Amazonie</a>
+        <a class="navbar-brand" href="index.html">Amazonie</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -113,7 +113,7 @@
         const url = "https://striveschool-api.herokuapp.com/api/product/";
         event.preventDefault();
 
-        let brand = document.getElementById("brand").value;
+        let brand = document.getElementById("discription").value;
 
         const myEvent = {
           "name": document.getElementById("name").value,
