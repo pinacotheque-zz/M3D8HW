@@ -75,6 +75,7 @@
             <div class="col col-md-6">
 
             <h2 class="justify-content-center mt-5 mb-5">Back Office</h2>
+            
             <form onsubmit="handleSubmit(event)">
                 <div class="form-group">
                   <label for="name">Product Name</label>
@@ -86,14 +87,43 @@
                   />
                 </div>
                 <div class="form-group">
-                    <label for="discription">discription</label>
+                    <label for="description">Description</label>
                     <input
-                      id="discription"
+                      id="description"
                       type="text"
                       class="form-control"
                       aria-describedby="name"
                     />
                   </div>
+                  <div class="form-group">
+                    <label for="brand">Brand</label>
+                    <input
+                      id="brand"
+                      type="text"
+                      class="form-control"
+                      aria-describedby="name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="price">Price</label>
+                    <input
+                      id="price"
+                      type="text"
+                      class="form-control"
+                      aria-describedby="name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="price">Price</label>
+                    <input
+                      id="price"
+                      type="text"
+                      class="form-control"
+                      value="http://placeimg.com/640/360/any"
+                      aria-describedby="name"
+                    />
+                  </div>
+                  
                 <input type="submit" class="btn btn-primary" value="Search" />
               </form>
             </div>
@@ -112,15 +142,13 @@
          const handleSubmit = async (event) => {
         const url = "https://striveschool-api.herokuapp.com/api/product/";
         event.preventDefault();
-
-        let brand = document.getElementById("discription").value;
-
+        
         const myEvent = {
-          "name": document.getElementById("name").value,
-          "description": document.getElementById("discription").value,
-        "brand": "nokia",
-         "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
-         "price": "2000"
+          name: document.getElementById("name").value,
+          description: document.getElementById("description").value,
+          brand: document.getElementById("brand").value,
+         imageUrl: "http://placeimg.com/640/360/any",
+         price: document.getElementById("price").value
         };
         // console.log("Handle submit", myEvent);
         try {
@@ -132,6 +160,7 @@
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlNDE5ZWNlYWY0ODAwMTVjOTE4NzIiLCJpYXQiOjE2MjIwMzI3OTgsImV4cCI6MTYyMzI0MjM5OH0.DgYZBl7qEA5Bp4LmgBUEcFVUWLySQfd-KQksu872Z2o",
             }
           }); 
+          console.log(response)
         } catch (err) {
           alert(err.message);
         }
